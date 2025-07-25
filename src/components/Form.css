@@ -485,4 +485,9 @@ body, html {
   padding: 0;
   overflow-x: hidden;
 
+}html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
