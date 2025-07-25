@@ -403,7 +403,7 @@ html, body, #root {
 }
 
 /* 📱 Mobile Styles */
-@@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
   .center-page {
     padding: 1rem;
     margin: 0;
@@ -481,6 +481,80 @@ html, body, #root {
   .button_top {
     font-size: 15px;
   }
+  .cloth-data-form {
+    width: 95vw; /* almost full width */
+    max-width: 600px;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  }
+  .cloth-data-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .result-text {
+    font-size: 1.1rem;
+  }
+  .radio-tile-container {
+    min-width: 90px;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+  
+  .icon svg {
+    width: 40px;
+    height: 40px;
+
+  }
+  .cloth-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .clothing-type-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+    margin: 1rem auto;
+  }
+  .cloth-selector {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .cloth-selector::-webkit-scrollbar {
+    display: none;
+  }
+  .radio-tile-container {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    font-size: 1rem;
+  }
+    
+  
 }
 
 .radio-label {
