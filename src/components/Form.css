@@ -386,3 +386,96 @@
   flex: 0 0 auto; /* prevents shrinking/growing, keeps width fixed */
 }
 
+@media screen and (max-width: 768px) {
+  .center-page {
+    padding: 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cloth-data-form {
+
+    padding: 1rem;
+  }
+
+  .cloth-type-choose h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  
+  .cloth-selector {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* enable horizontal scroll */
+    gap: 0.3rem;         /* space between items */
+    padding: 0.5rem 0;
+    scroll-behavior: smooth;
+    scrollbar-width: thin; /* for Firefox */
+    width: 96%;
+
+  }
+
+  .radio-tile-container {
+    
+  
+    margin: 0px;
+    height: 40%;
+  
+  }
+
+  .price-input-div {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .price-input {
+    width: 96%;
+  }
+
+  
+  .d-flex.gap-3.mx-2 {
+    flex-direction: column;
+
+  }
+
+  .result-table {
+    font-size: 13px;
+  }
+
+  .result-table th,
+  .result-table td {
+    padding: 6px;
+  }
+
+  .list-group-item {
+    font-size: 14px;
+  }
+
+  .fancy-button {
+    
+    font-size: 14px;
+  }
+
+  .form-container > div {
+    text-align: center;
+
+  }
+
+  .radio-tile {
+    padding: 10px;
+  }
+
+  .button_top {
+    font-size: 15px;
+  }
+}
+.radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 12px;
+}
+

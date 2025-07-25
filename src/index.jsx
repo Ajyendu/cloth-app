@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ClothState>
-      <BrowserRouter>
+      <BrowserRouter basename="/cloth-app">
         <App />
       </BrowserRouter>
     </ClothState>

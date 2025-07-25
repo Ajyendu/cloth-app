@@ -109,7 +109,7 @@ const Form = () => {
               <h2>Select Clothing Type</h2>
             </div>
 
-            <div className="form-container" style={{ overflow: "hidden" }}>
+            <div className="form-container">
               <div className="cloth-selector">
                 {[
                   { type: "Half-Shirt", icon: halfShirtIcon },
