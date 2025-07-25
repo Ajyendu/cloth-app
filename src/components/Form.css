@@ -10,8 +10,7 @@
   padding: 0;
   border-radius: var(--button_radius);
   background: var(--button_outline_color);
-   /* ✅ clips inner white part */
-
+  /* ✅ clips inner white part */
 }
 
 .button_top {
@@ -34,17 +33,15 @@
 
 .fancy-button:active .button_top {
   transform: translateY(0);
-
 }
-/* From Uiverse.io by lenfear23 */ 
-/* From Uiverse.io by Na3ar-17 */ 
-/* From Uiverse.io by Na3ar-17 */ 
+/* From Uiverse.io by lenfear23 */
+/* From Uiverse.io by Na3ar-17 */
+/* From Uiverse.io by Na3ar-17 */
 .admin_button {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  
+
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
@@ -130,20 +127,17 @@
   color: #313033;
   font-size: 12px;
 }
-/* From Uiverse.io by Yaya12085 */ 
+/* From Uiverse.io by Yaya12085 */
 .radio-inputs {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
-
 
 .radio-input:checked + .radio-tile {
   border-color: #2260ff;
@@ -175,8 +169,6 @@
   transform: scale(1);
   opacity: 1;
 }
-
-
 
 .radio-tile {
   display: flex;
@@ -231,8 +223,7 @@
   color: #707070;
   transition: 0.375s ease;
   text-align: center;
-  
-  
+
   font-size: 13px;
 }
 
@@ -247,8 +238,7 @@
   width: 1px;
 }
 
-
-/* From Uiverse.io by alexruix */ 
+/* From Uiverse.io by alexruix */
 .price-input-div {
   position: relative;
   display: flex;
@@ -301,8 +291,7 @@
   align-items: center;
   min-height: 80vh;
 
-
-/* optional, for spacing on small screens */
+  /* optional, for spacing on small screens */
 }
 
 .cloth-data-form {
@@ -310,12 +299,9 @@
 
   border-radius: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  
 }
 
-
-
-#summary-to-print{
+#summary-to-print {
   max-height: 90vh; /* or 100vh - some padding if you prefer */
   overflow-y: auto;
 }
@@ -331,7 +317,7 @@
   line-height: 1.1;
   max-height: 240px;
 }
-            
+
 .result-table thead {
   background-color: #f4f4f4;
 }
@@ -359,9 +345,6 @@
 
 /* App.css or relevant CSS file */
 
-
-
-
 .cloth-selector::-webkit-scrollbar {
   height: 6px;
 }
@@ -375,7 +358,9 @@
   margin: 10px;
 }
 /* Prevent body scroll on all devices */
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -389,13 +374,10 @@ html, body, #root {
   transition: 0.375s ease;
   text-align: center;
   font-size: 12px;
-
 }
 
 /* 📱 Mobile Styles */
 @media screen and (max-width: 1080px) {
-  
-
   .cloth-data-form {
     padding: 2rem;
     max-width: 100%;
@@ -410,10 +392,7 @@ html, body, #root {
     display: flex;
     flex-direction: row;
     padding: 0px;
-   
   }
-
- 
 
   .price-input-div {
     width: 100%;
@@ -451,35 +430,16 @@ html, body, #root {
 
   .radio-tile {
     padding: 10px;
-    
- 
   }
 
   .button_top {
     font-size: 15px;
   }
- 
 
-  
-  .cloth-selector {
-
-    flex-wrap: wrap;
-    justify-content: center;
-    transform: translateX(-11%);
-    width: 425px;
-    align-items: center;
-    justify-content: center;
-   
- 
-  }
-  
-  
   .radio-tile-container {
-    
-    width: 100px;
-    height: 100px;
-   
-    
+    width: 12vw;
+    height: 12vw;
+
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -488,14 +448,15 @@ html, body, #root {
     justify-content: center;
     scroll-snap-align: start;
     font-size: 1rem;
-
   }
-  
-  
-
-
-    
-  
+  .cloth-selector {
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: translateX(-11%);
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .radio-label {
@@ -509,22 +470,9 @@ html, body, #root {
   box-sizing: border-box;
 }
 
-
-.form-card {
-  width: 100%;
-
-  margin: 0 auto;
-  background-color: white;
-
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-
-  box-sizing: border-box;
-}
-
-.cloth-selector{
+.cloth-selector {
   padding: 20px;
 }
-  
 
 @media screen and (max-width: 768px) {
   .form-card {
@@ -532,9 +480,9 @@ html, body, #root {
     padding-top: 0;
   }
 
-  .container, .center-page {
+  .container,
+  .center-page {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-  
 }

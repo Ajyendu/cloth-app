@@ -187,8 +187,8 @@ const Form = () => {
                 <label className="price-label">Extra Charges (if any)</label>
               </div>
 
-              <div className="d-flex gap-3 mx-2">
-                <div className="d-flex gap-2 my-2">
+              <div>
+                <div className="d-flex  ">
                   {/* Admin toggle */}
                   <div className="admin_button">
                     <label className="switch">
@@ -220,10 +220,7 @@ const Form = () => {
 
                   {/* GST toggle */}
                   {costPrice && (
-                    <div
-                      className="admin_button"
-                      style={{ marginLeft: "70px" }}
-                    >
+                    <div className="admin_button">
                       <label className="switch">
                         <input
                           type="checkbox"
