@@ -463,7 +463,7 @@ html, body, #root {
 
     flex-wrap: wrap;
     justify-content: center;
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     width: 425px;
     align-items: center;
     justify-content: center;
