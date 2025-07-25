@@ -1,0 +1,388 @@
+.fancy-button {
+  --button_radius: 0.75em;
+  --button_color: #e8e8e8;
+  --button_outline_color: #000000;
+
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+   /* ✅ clips inner white part */
+
+}
+
+.button_top {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+.fancy-button:hover .button_top {
+  transform: translateY(-0.33em);
+}
+
+.fancy-button:active .button_top {
+  transform: translateY(0);
+
+}
+/* From Uiverse.io by lenfear23 */ 
+/* From Uiverse.io by Na3ar-17 */ 
+/* From Uiverse.io by Na3ar-17 */ 
+.admin_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.switch {
+  font-size: 0.875rem;
+  position: relative;
+  display: inline-block;
+  width: 9em;
+  height: 2.6em;
+}
+
+.switch input {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch input:checked + .slider .ball {
+  box-shadow: 10px 10px 100px #7f8996;
+}
+
+.switch input:checked + .slider .title {
+  left: 40%;
+}
+
+.switch input:checked + .slider {
+  background-color: #8a5cd4;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 10px 10px 100px #7f8996;
+}
+
+.switch input:checked + .slider .ball {
+  left: 72%;
+  transform: rotate(360deg);
+  box-shadow: none;
+  outline: 6px solid rgba(255, 255, 255, 0.278);
+}
+
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #313033;
+  transition: all 0.4s;
+  border-radius: 30px;
+}
+
+.switch .slider .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  transition: all 0.4s;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.switch .slider .ball {
+  background-color: #fff;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  position: absolute;
+  left: -1px;
+  transition: 0.4s;
+}
+
+.switch .slider .ball .icon {
+  position: absolute;
+  top: 58%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  color: #313033;
+  font-size: 12px;
+}
+/* From Uiverse.io by Yaya12085 */ 
+.radio-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-inputs > * {
+  margin: 6px;
+}
+
+.radio-input:checked + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #2260ff;
+  border-color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #2260ff;
+}
+
+.radio-input:focus + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+}
+
+.radio-input:focus + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.form-container{
+  width: 350px;
+ 
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  min-height: 80px;
+  
+  /* margin-right: px; */
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+  border-color: #2260ff;
+}
+
+.radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #494949;
+}
+
+.radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+/* From Uiverse.io by alexruix */ 
+.price-input-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1rem;
+}
+
+.price-input {
+  width: 340px;
+  border: solid 1.5px #9e9e9e;
+  border-radius: 1rem;
+  background: none;
+  padding: 1rem;
+  font-size: 1rem;
+  color: black;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.price-label {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  color: #747474;
+  pointer-events: none;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+}
+
+.price-input:focus,
+.price-input:valid {
+  outline: none;
+  border: 1.5px solid #1a73e8;
+}
+
+.price-input:focus ~ .price-label,
+.price-input:valid ~ .price-label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: white;
+  padding: 0 0.2em;
+  top: 0;
+  color: #2196f3;
+}
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem; /* optional, for spacing on small screens */
+}
+
+.cloth-data-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  
+}
+
+.form-container{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#summary-to-print{
+  max-height: 90vh; /* or 100vh - some padding if you prefer */
+  overflow-y: auto;
+}
+
+.result-table {
+  width: 100%;
+  margin: 0.5rem auto;
+  border-collapse: collapse;
+  border-radius: 8px;
+
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  font-size: 1rem; /* Smaller text */
+  line-height: 1.1;
+  max-height: 240px;
+}
+            
+.result-table thead {
+  background-color: #f4f4f4;
+}
+
+.result-table th,
+.result-table td {
+  padding: 0.3rem 0.6rem; /* Tighter padding */
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.result-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+@media screen and (max-width: 600px) {
+  .result-table {
+    font-size: 1rem;
+  }
+}
+
+/* .cloth-type-choose{
+  width: 300px;
+} */
+
+/* App.css or relevant CSS file */
+
+.cloth-selector {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; /* enable horizontal scroll */
+  gap: 0.5rem;         /* space between items */
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin; /* for Firefox */
+}
+
+.cloth-selector::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cloth-selector::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.radio-tile-container {
+  flex: 0 0 auto; /* prevents shrinking/growing, keeps width fixed */
+}
+
