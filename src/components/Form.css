@@ -512,11 +512,6 @@ html, body, #root {
   .button_top {
     font-size: 15px;
   }
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
   
   html, body {
     margin: 0;
@@ -534,7 +529,7 @@ html, body, #root {
   
   .form-container {
     width: 90%;
-    max-width: 300px;
+    max-width: 380px;
     
 
   
