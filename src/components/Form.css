@@ -487,10 +487,10 @@ html, body, #root {
   .cloth-selector {
 
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0rem;
     width: 100%;
-    margin-bottom: 1rem;
+ 
   }
   
   
@@ -510,7 +510,7 @@ html, body, #root {
 
   }
   
-  
+ 
   
 
 
