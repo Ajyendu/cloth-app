@@ -144,7 +144,7 @@ const Form = () => {
             </div>
 
             <div className="form-container">
-              <div style={{ marginTop: "1rem" }}>
+              <div>
                 <strong>Selected Type:</strong> {clothDetails.type || "None"}
               </div>
             </div>

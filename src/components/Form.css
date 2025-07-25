@@ -43,8 +43,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  
+  
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
@@ -135,7 +135,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 350px;
+
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -143,9 +143,7 @@
   user-select: none;
 }
 
-.radio-inputs > * {
-  margin: 6px;
-}
+
 
 .radio-input:checked + .radio-tile {
   border-color: #2260ff;
@@ -178,10 +176,7 @@
   opacity: 1;
 }
 
-.form-container{
-  width: 350px;
- 
-}
+
 
 .radio-tile {
   display: flex;
@@ -190,7 +185,7 @@
   justify-content: center;
   width: 80px;
   min-height: 80px;
-  
+
   /* margin-right: px; */
   border-radius: 0.5rem;
   border: 2px solid #b5bfd9;
@@ -236,6 +231,8 @@
   color: #707070;
   transition: 0.375s ease;
   text-align: center;
+  
+  
   font-size: 13px;
 }
 
@@ -259,7 +256,7 @@
   align-items: center;
   justify-content: center;
 
-  margin-top: 1rem;
+  margin-top: 0.3rem;
 }
 
 .price-input {
@@ -303,22 +300,18 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 1rem; /* optional, for spacing on small screens */
+/* optional, for spacing on small screens */
 }
 
 .cloth-data-form {
   background-color: white;
-  padding: 2rem;
+
   border-radius: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   
 }
 
-.form-container{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
+
 
 #summary-to-print{
   max-height: 90vh; /* or 100vh - some padding if you prefer */
@@ -364,15 +357,8 @@
 
 /* App.css or relevant CSS file */
 
-.cloth-selector {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto; /* enable horizontal scroll */
-  gap: 0.5rem;         /* space between items */
-  padding: 1rem 0;
-  scroll-behavior: smooth;
-  scrollbar-width: thin; /* for Firefox */
-}
+
+
 
 .cloth-selector::-webkit-scrollbar {
   height: 6px;
@@ -384,6 +370,7 @@
 }
 .radio-tile-container {
   flex: 0 0 auto; /* prevents shrinking/growing, keeps width fixed */
+  margin: 10px;
 }
 /* Prevent body scroll on all devices */
 html, body, #root {
@@ -400,21 +387,15 @@ html, body, #root {
   transition: 0.375s ease;
   text-align: center;
   font-size: 12px;
+
 }
 
 /* 📱 Mobile Styles */
 @media screen and (max-width: 1080px) {
-  .center-page {
-    padding: 1rem;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-  }
+  
 
   .cloth-data-form {
-    padding: 1rem;
+    padding: 2rem;
     max-width: 100%;
   }
 
@@ -426,19 +407,11 @@ html, body, #root {
   .cloth-selector {
     display: flex;
     flex-direction: row;
-    overflow-x: auto;
-    gap: 0.3rem;
-    padding: 0.5rem 0;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    width: 100%;
-    max-width: 100%;
+    padding: 0px;
+   
   }
 
-  .radio-tile-container {
-    margin: 0;
-    height: 40%;
-  }
+ 
 
   .price-input-div {
     width: 100%;
@@ -476,6 +449,8 @@ html, body, #root {
 
   .radio-tile {
     padding: 10px;
+    
+ 
   }
 
   .button_top {
@@ -488,17 +463,21 @@ html, body, #root {
 
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0rem;
-    width: 100%;
+    transform: translateX(-10%);
+    width: 425px;
+    align-items: center;
+    justify-content: center;
+   
  
   }
   
   
   .radio-tile-container {
-    flex: 0 0 auto;
+    
     width: 100px;
     height: 100px;
-    padding: 1rem;
+   
+    
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -532,32 +511,17 @@ html, body, #root {
 
 .form-card {
   width: 100%;
-  max-width: 700px;
+
   margin: 0 auto;
   background-color: white;
-  border-radius: 1.5rem;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+
   box-sizing: border-box;
 }
 
-
-@media (max-width: 450px) {
-  .form-card {
-    max-width: 92vw; /* slightly wider on extra small phones */
-  }
-  .clothing-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  max-width: 100%;
-  overflow-x: auto;
+.cloth-selector{
+  padding: 20px;
 }
-
   
-  
-  
-}
-
 
