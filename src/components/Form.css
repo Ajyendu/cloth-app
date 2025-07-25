@@ -465,7 +465,7 @@ html, body, #root {
 
     flex-wrap: wrap;
     justify-content: center;
-    transform: translateX(-10%);
+    transform: translateX(-11%);
     width: 425px;
     align-items: center;
     justify-content: center;
@@ -536,7 +536,5 @@ html, body, #root {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-  body{
-    height: 800px;
-  }
+  
 }
