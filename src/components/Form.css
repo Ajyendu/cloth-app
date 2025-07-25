@@ -529,16 +529,15 @@ html, body, #root {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+ 
   }
   
   .form-container {
     width: 90%;
     max-width: 380px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+
+  
   }
   
   .radio-label {
@@ -548,11 +547,4 @@ html, body, #root {
     font-size: 12px;
   }
   
-  
- 
-  
-  
-  
-
-
 }
