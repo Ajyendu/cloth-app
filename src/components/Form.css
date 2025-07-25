@@ -442,7 +442,7 @@ html, body, #root {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 0.5rem 0;
     scroll-behavior: smooth;
     scrollbar-width: thin;
@@ -522,7 +522,6 @@ html, body, #root {
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 400px;
   }
   
   #root {
@@ -534,11 +533,11 @@ html, body, #root {
   }
   
   .form-container {
-    width: 90%;
+
     max-width: 380px;
     
 
-  
+
   }
   
   .radio-label {
