@@ -25,35 +25,62 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const printContent = `
+    const printHTML = `
       <html>
         <head>
-          <title>Print Summary</title>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          
-          <!-- Bootstrap CSS -->
+          <title>Print Summary</title>
+  
+          <!-- Bootstrap + Icons -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-          
-          <!-- Icons -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-          
+  
           <style>
             body {
-              margin: 0;
-              padding: 20px;
               font-family: 'Segoe UI', Roboto, sans-serif;
-              background-color: #f8f9fa;
+              padding: 20px;
+              background: #f9f9f9;
+              display: flex;
+              justify-content: center;
             }
   
             .print-card {
               background-color: #fff;
               border-radius: 12px;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
               padding: 24px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
               width: 90%;
-              margin: 30px auto;
+              max-width: 600px;
+            }
+  
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 16px;
+            }
+  
+            th, td {
+              border: 1px solid #ddd;
+              padding: 10px;
+              text-align: center;
+            }
+  
+            th {
+              background: #eee;
+            }
+  
+            .print-btn {
+              display: block;
+              margin: 30px auto 10px;
+              padding: 10px 16px;
+              font-size: 16px;
+              background: black;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
             }
   
             .branding {
@@ -61,23 +88,7 @@ const Form = () => {
             }
   
             .branding2 {
-              height: 50px;
-            }
-  
-            table {
-              width: 100%;
-              border-collapse: collapse;
-              margin-top: 20px;
-            }
-  
-            th, td {
-              padding: 10px;
-              border: 1px solid #ccc;
-              text-align: center;
-            }
-  
-            th {
-              background-color: #eee;
+              height: 40px;
             }
   
             @media print {
@@ -93,12 +104,17 @@ const Form = () => {
             ${summary.innerHTML}
             <div class="branding2"></div>
           </div>
+          <button class="print-btn no-print" onclick="window.print()">Print Again</button>
   
           <script>
             window.onload = () => {
               setTimeout(() => {
-                window.print();
-              }, 300);
+                try {
+                  window.print();
+                } catch(e) {
+                  console.error("Auto-print failed:", e);
+                }
+              }, 500);
             };
           </script>
         </body>
@@ -108,7 +124,7 @@ const Form = () => {
     const printWindow = window.open("", "_blank");
     if (printWindow) {
       printWindow.document.open();
-      printWindow.document.write(printContent);
+      printWindow.document.write(printHTML);
       printWindow.document.close();
     } else {
       alert("Popup blocked! Please allow popups for this site.");
