@@ -25,18 +25,14 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const originalContent = document.body.innerHTML;
-
-    const printableHTML = `
+    const printWindow = window.open("", "_blank");
+    printWindow.document.write(`
       <html>
         <head>
           <title>Print Summary</title>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
           <style>
-            .no-print {
-                display: none !important;
-              }
-                body {
+            body {
               margin: 0;
               padding: 30px;
               background-color: #f8f9fa;
@@ -46,15 +42,12 @@ const Form = () => {
             }
   
             .print-card {
-              
               background-color: #fff;
               border-radius: 12px;
               box-shadow: 0 4px 12px rgba(0,0,0,0.1);
               padding: 24px;
-              height: 93vh;
-           
-              max-width: 90vw;
-              width: 100%;
+              height: auto;
+              width: 90vw;
             }
   
             .summary-header {
@@ -84,79 +77,46 @@ const Form = () => {
               background-color: #f1f3f5;
               font-weight: 600;
             }
-                .branding{
-            height:35%;
+  
+            .branding {
+              height: 35vh;
             }
+  
             @media print {
-              .no-print {
-                display: none !important;
+              body {
+                padding-top: 60px;
+                justify-content: center;
+                align-items: flex-start;
               }
-                .branding{
-            height:35%;
-            }
-                body {
-              margin: 0;
-              padding: 30px;
-              background-color: #f8f9fa;
-              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-              display: flex;
-              justify-content: center;
-            }
   
-            .print-card {
-              
-              background-color: #fff;
-              border-radius: 12px;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-              padding: 24px;
-              height:93vh;
-              max-width: 90vw;
-              width: 100%;
-            }
+              .branding {
+                height: 25vh;
+              }
   
-            .summary-header {
-              font-weight: 600;
-              margin-bottom: 8px;
-              font-size: 16px;
-              display: flex;
-              justify-content: space-between;
-              border-bottom: 1px solid #dee2e6;
-              padding: 6px 0;
-            }
-  
-            table {
-              margin-top: 16px;
-              width: 100%;
-              border-collapse: collapse;
-              font-size: 14px;
-            }
-  
-            th, td {
-              padding: 10px 8px;
-              border: 1px solid #dee2e6;
-              text-align: center;
-            }
-  
-            th {
-              background-color: #f1f3f5;
-              font-weight: 600;
-            }
+              .print-card {
+                height: auto;
+                page-break-inside: avoid;
+              }
             }
           </style>
         </head>
         <body>
-          
           <div class="print-card">
             <div class="branding"></div>
             ${summary.innerHTML}
           </div>
         </body>
       </html>
-    `;
+    `);
 
-    document.body.innerHTML = printableHTML;
-    window.print();
-    document.body.innerHTML = originalContent;
+    printWindow.document.close();
+
+    // Wait for content to fully load before printing
+    printWindow.onload = () => {
+      printWindow.focus();
+      printWindow.print();
+      printWindow.close();
+    };
   };
 
   const handleChange = (e) => {
