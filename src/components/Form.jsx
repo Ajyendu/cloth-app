@@ -30,33 +30,22 @@ const Form = () => {
         <head>
           <title>Print Summary</title>
           <meta charset="UTF-8" />
-
+          
+          <!-- Bootstrap & Icons -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
-  <!-- Bootstrap CSS (already added) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  
-  <!-- Font Awesome (optional) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
-  <!-- Your custom CSS (optional) -->
-  <link rel="stylesheet" href="/form.css" />
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-
           <style>
             body {
               margin: 0;
               padding: 30px;
               background-color: #f8f9fa;
-              font-family: sans-serif;
+              font-family: 'Segoe UI', Roboto, 'Noto Sans', 'Arial Unicode MS', sans-serif;
               display: flex;
               flex-direction: column;
               align-items: center;
               min-height: 100vh;
-              font-family: 'Segoe UI', Roboto, 'Noto Sans', 'Arial Unicode MS', sans-serif;
             }
   
             .print-card {
@@ -72,7 +61,9 @@ const Form = () => {
               height: 200px;
             }
   
-     
+            .branding2 {
+              height: 50px;
+            }
   
             table {
               margin-top: 16px;
@@ -100,16 +91,14 @@ const Form = () => {
               border: none;
               border-radius: 8px;
               cursor: pointer;
+              margin-top: 16px;
             }
-       @media print {
-  .no-print {
-    display: none !important;
-  }
-}
-  .branding2{
-  height: 50px;
-  }
-
+  
+            @media print {
+              .no-print {
+                display: none !important;
+              }
+            }
           </style>
         </head>
         <body>
@@ -118,7 +107,12 @@ const Form = () => {
             ${summary.innerHTML}
             <div class="branding2"></div>
           </div>
-          <button class="print-button no-print" onclick="window.print()">Print</button>
+          <button class="print-button no-print" onclick="window.print()">Print Again</button>
+          <script>
+            window.onload = () => {
+              window.print();
+            }
+          </script>
         </body>
       </html>
     `;
