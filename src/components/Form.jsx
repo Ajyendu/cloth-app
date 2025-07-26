@@ -369,10 +369,11 @@ const Form = () => {
 
       {submitted && (
         <div className="d-flex justify-content-center my-3">
-          <button className="fancy-button">
-            <span className="button_top" onClick={handlePrintSummary}>
-              Print
-            </span>
+          <button
+            className="fancy-button no-print"
+            onClick={handlePrintSummary}
+          >
+            <span className="button_top">Print</span>
           </button>
         </div>
       )}

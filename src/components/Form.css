@@ -996,3 +996,8 @@ body,
     font-size: 12px;
   }
 }
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
