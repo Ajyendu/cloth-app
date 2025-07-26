@@ -25,7 +25,12 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const printWindow = window.open("", "_blank");
+    const printWindow = window.open("", "_blank", "width=800,height=600");
+
+    if (!printWindow) {
+      alert("Please allow popups to print the summary.");
+      return;
+    }
 
     printWindow.document.write(`
       <html>
@@ -48,7 +53,7 @@ const Form = () => {
               box-shadow: 0 4px 12px rgba(0,0,0,0.1);
               padding: 24px;
               width: 90vw;
-              min-height: 800px; /* Avoid vh on mobile */
+              min-height: 800px;
               margin: auto;
             }
   
@@ -99,20 +104,20 @@ const Form = () => {
           <div class="print-card">
             <div class="branding"></div>
             ${summary.innerHTML}
-          
+
           </div>
         </body>
       </html>
     `);
 
-    printWindow.document.close();
+    printWindow.document.close(); // Important for Android
     printWindow.focus();
 
-    // Give time for layout to render before printing
-    setTimeout(() => {
+    // Wait for styles and content to load
+    printWindow.onload = () => {
       printWindow.print();
-      printWindow.close();
-    }, 500);
+      printWindow.onafterprint = () => printWindow.close();
+    };
   };
 
   const handleChange = (e) => {
