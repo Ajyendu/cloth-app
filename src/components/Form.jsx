@@ -32,16 +32,77 @@ const Form = () => {
           <title>Print Summary</title>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
           <style>
-            @media print {
-              body { margin: 20px; }
+            body {
+              margin: 0;
+              padding: 30px;
+              background-color: #f8f9fa;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              display: flex;
+              justify-content: center;
             }
+  
+            .print-card {
+              background-color: #fff;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              padding: 24px;
+              max-width: 600px;
+              width: 100%;
+
+
+            }
+  
+            .summary-header {
+              font-weight: 600;
+              margin-bottom: 8px;
+              font-size: 16px;
+              display: flex;
+              justify-content: space-between;
+              border-bottom: 1px solid #dee2e6;
+              padding: 6px 0;
+            }
+  
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              font-size: 14px;
+            }
+  
+            th, td {
+              padding: 10px 8px;
+              border: 1px solid #dee2e6;
+              text-align: center;
+            }
+  
+            th {
+              background-color: #f1f3f5;
+              font-weight: 600;
+            }
+              
+  
+            @media print {
+              body {
+                margin: 0;
+                zoom: 100%;
+                background-color: white;
+              }
+  
+              .print-button {
+                display: none;
+              }
+            }
+            
+              
           </style>
         </head>
         <body>
-          ${summary.innerHTML}
+          <div class="print-card">
+            ${summary.innerHTML}
+          </div>
         </body>
       </html>
     `);
+
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
