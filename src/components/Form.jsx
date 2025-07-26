@@ -25,70 +25,76 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const printHTML = `
+    const printContent = `
       <html>
         <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Print Summary</title>
+          <meta charset="UTF-8" />
   
-          <!-- Bootstrap + Icons -->
+          <!-- Bootstrap CSS -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+          
+          <!-- Bootstrap Icons -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+          
+          <!-- Font Awesome (optional) -->
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
           <style>
             body {
-              font-family: 'Segoe UI', Roboto, sans-serif;
-              padding: 20px;
-              background: #f9f9f9;
+              margin: 0;
+              padding: 30px;
+              background-color: #f8f9fa;
+              font-family: 'Segoe UI', Roboto, 'Noto Sans', 'Arial Unicode MS', sans-serif;
               display: flex;
-              justify-content: center;
+              flex-direction: column;
+              align-items: center;
+              min-height: 100vh;
             }
   
             .print-card {
               background-color: #fff;
               border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
               padding: 24px;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-              width: 90%;
-              max-width: 600px;
+              width: 90vw;
+              margin-bottom: 20px;
+            }
+  
+            .branding {
+              height: 200px;
+            }
+  
+            .branding2 {
+              height: 50px;
             }
   
             table {
+              margin-top: 16px;
               width: 100%;
               border-collapse: collapse;
-              margin-top: 16px;
+              font-size: 14px;
             }
   
             th, td {
-              border: 1px solid #ddd;
-              padding: 10px;
+              padding: 10px 8px;
+              border: 1px solid #dee2e6;
               text-align: center;
             }
   
             th {
-              background: #eee;
+              background-color: #f1f3f5;
+              font-weight: 600;
             }
   
-            .print-btn {
-              display: block;
-              margin: 30px auto 10px;
+            .print-button {
               padding: 10px 16px;
               font-size: 16px;
-              background: black;
+              background-color: black;
               color: white;
               border: none;
               border-radius: 8px;
               cursor: pointer;
-            }
-  
-            .branding {
-              height: 100px;
-            }
-  
-            .branding2 {
-              height: 40px;
             }
   
             @media print {
@@ -104,31 +110,14 @@ const Form = () => {
             ${summary.innerHTML}
             <div class="branding2"></div>
           </div>
-          <button class="print-btn no-print" onclick="window.print()">Print Again</button>
-  
-          <script>
-            window.onload = () => {
-              setTimeout(() => {
-                try {
-                  window.print();
-                } catch(e) {
-                  console.error("Auto-print failed:", e);
-                }
-              }, 500);
-            };
-          </script>
+          <button class="print-button no-print" onclick="window.print()">Print</button>
         </body>
       </html>
     `;
 
-    const printWindow = window.open("", "_blank");
-    if (printWindow) {
-      printWindow.document.open();
-      printWindow.document.write(printHTML);
-      printWindow.document.close();
-    } else {
-      alert("Popup blocked! Please allow popups for this site.");
-    }
+    const blob = new Blob([printContent], { type: "text/html" });
+    const blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, "_blank");
   };
 
   const handleChange = (e) => {
