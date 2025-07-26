@@ -25,21 +25,20 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const printContent = `
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) {
+      alert("Popup blocked. Please allow popups for this site.");
+      return;
+    }
+
+    printWindow.document.write(`
       <html>
         <head>
           <title>Print Summary</title>
           <meta charset="UTF-8" />
-  
-          <!-- Bootstrap CSS -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-          
-          <!-- Bootstrap Icons -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-          
-          <!-- Font Awesome (optional) -->
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
           <style>
             body {
               margin: 0;
@@ -51,7 +50,6 @@ const Form = () => {
               align-items: center;
               min-height: 100vh;
             }
-  
             .print-card {
               background-color: #fff;
               border-radius: 12px;
@@ -60,43 +58,21 @@ const Form = () => {
               width: 90vw;
               margin-bottom: 20px;
             }
-  
-            .branding {
-              height: 200px;
-            }
-  
-            .branding2 {
-              height: 50px;
-            }
-  
             table {
               margin-top: 16px;
               width: 100%;
               border-collapse: collapse;
               font-size: 14px;
             }
-  
             th, td {
               padding: 10px 8px;
               border: 1px solid #dee2e6;
               text-align: center;
             }
-  
             th {
               background-color: #f1f3f5;
               font-weight: 600;
             }
-  
-            .print-button {
-              padding: 10px 16px;
-              font-size: 16px;
-              background-color: black;
-              color: white;
-              border: none;
-              border-radius: 8px;
-              cursor: pointer;
-            }
-  
             @media print {
               .no-print {
                 display: none !important;
@@ -106,18 +82,20 @@ const Form = () => {
         </head>
         <body>
           <div class="print-card">
-            <div class="branding"></div>
             ${summary.innerHTML}
-            <div class="branding2"></div>
           </div>
-          <button class="print-button no-print" onclick="window.print()">Print</button>
         </body>
       </html>
-    `;
+    `);
 
-    const blob = new Blob([printContent], { type: "text/html" });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, "_blank");
+    // Wait until content is fully loaded before printing
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.onload = () => {
+      printWindow.print();
+      // Optional: Close the window after printing
+      // printWindow.close();
+    };
   };
 
   const handleChange = (e) => {
