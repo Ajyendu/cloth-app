@@ -25,26 +25,38 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const printWindow = window.open("", "_blank", "width=800,height=600");
-
-    if (!printWindow) {
-      alert("Please allow popups to print the summary.");
-      return;
-    }
-
-    printWindow.document.write(`
+    const printContent = `
       <html>
         <head>
           <title>Print Summary</title>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+          <meta charset="UTF-8" />
+
+  
+  <!-- Bootstrap CSS (already added) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  
+  <!-- Font Awesome (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Your custom CSS (optional) -->
+  <link rel="stylesheet" href="/form.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+
           <style>
             body {
               margin: 0;
               padding: 30px;
               background-color: #f8f9fa;
-              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              font-family: sans-serif;
               display: flex;
-              justify-content: center;
+              flex-direction: column;
+              align-items: center;
+              min-height: 100vh;
+              font-family: 'Segoe UI', Roboto, 'Noto Sans', 'Arial Unicode MS', sans-serif;
             }
   
             .print-card {
@@ -53,19 +65,14 @@ const Form = () => {
               box-shadow: 0 4px 12px rgba(0,0,0,0.1);
               padding: 24px;
               width: 90vw;
-              min-height: 800px;
-              margin: auto;
+              margin-bottom: 20px;
             }
   
-            .summary-header {
-              font-weight: 600;
-              margin-bottom: 8px;
-              font-size: 16px;
-              display: flex;
-              justify-content: space-between;
-              border-bottom: 1px solid #dee2e6;
-              padding: 6px 0;
+            .branding {
+              height: 200px;
             }
+  
+     
   
             table {
               margin-top: 16px;
@@ -85,39 +92,40 @@ const Form = () => {
               font-weight: 600;
             }
   
-            .branding {
-              height: 300px;
+            .print-button {
+              padding: 10px 16px;
+              font-size: 16px;
+              background-color: black;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
             }
-  
-            .branding2 {
-              height: 130px;
-            }
-  
-            @media print {
-              .no-print {
-                display: none !important;
-              }
-            }
+       @media print {
+  .no-print {
+    display: none !important;
+  }
+}
+  .branding2{
+  height: 50px;
+  }
+
           </style>
         </head>
         <body>
           <div class="print-card">
             <div class="branding"></div>
             ${summary.innerHTML}
-
+            <div class="branding2"></div>
           </div>
+          <button class="print-button no-print" onclick="window.print()">Print</button>
         </body>
       </html>
-    `);
+    `;
 
-    printWindow.document.close(); // Important for Android
-    printWindow.focus();
-
-    // Wait for styles and content to load
-    printWindow.onload = () => {
-      printWindow.print();
-      printWindow.onafterprint = () => printWindow.close();
-    };
+    const blob = new Blob([printContent], { type: "text/html" });
+    const blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, "_blank");
   };
 
   const handleChange = (e) => {
@@ -344,13 +352,13 @@ const Form = () => {
             {embroideryCharges && (
               <li className="list-group-item d-flex justify-content-between">
                 <strong>Embroidery Charges:</strong>
-                <span>₹{embroideryCharges}</span>
+                <span>&#8377;{embroideryCharges}</span>
               </li>
             )}
             {extraCharges && (
               <li className="list-group-item d-flex justify-content-between">
                 <strong>Extra Charges:</strong>
-                <span>₹{extraCharges}</span>
+                <span>&#8377;{extraCharges}</span>
               </li>
             )}
             <li className="list-group-item d-flex justify-content-between">
@@ -359,7 +367,7 @@ const Form = () => {
             </li>
             <li className="list-group-item d-flex justify-content-between">
               <strong>Price:</strong>
-              <span>₹{clothDetails.price}</span>
+              <span>&#8377;{clothDetails.price}</span>
             </li>
           </ul>
 
@@ -368,9 +376,9 @@ const Form = () => {
               <thead>
                 <tr>
                   <th>Size</th>
-                  {costPrice && <th>Cost Price (₹)</th>}
+                  {costPrice && <th>Cost Price (&#8377;)</th>}
                   <th>Sale Price (₹)</th>
-                  {costPrice && <th>Profit (₹)</th>}
+                  {costPrice && <th>Profit (&#8377;)</th>}
                 </tr>
               </thead>
               <tbody>
