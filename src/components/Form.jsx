@@ -25,8 +25,9 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const printWindow = window.open("", "_blank");
-    printWindow.document.write(`
+    const originalContent = document.body.innerHTML;
+
+    const printableHTML = `
       <html>
         <head>
           <title>Print Summary</title>
@@ -48,8 +49,6 @@ const Form = () => {
               padding: 24px;
               max-width: 600px;
               width: 100%;
-
-
             }
   
             .summary-header {
@@ -63,6 +62,7 @@ const Form = () => {
             }
   
             table {
+              margin-top: 16px;
               width: 100%;
               border-collapse: collapse;
               font-size: 14px;
@@ -78,21 +78,12 @@ const Form = () => {
               background-color: #f1f3f5;
               font-weight: 600;
             }
-              
   
             @media print {
-              body {
-                margin: 0;
-                zoom: 100%;
-                background-color: white;
-              }
-  
-              .print-button {
-                display: none;
+              .no-print {
+                display: none !important;
               }
             }
-            
-              
           </style>
         </head>
         <body>
@@ -101,12 +92,11 @@ const Form = () => {
           </div>
         </body>
       </html>
-    `);
+    `;
 
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
+    document.body.innerHTML = printableHTML;
+    window.print();
+    document.body.innerHTML = originalContent;
   };
 
   const handleChange = (e) => {
