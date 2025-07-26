@@ -61,6 +61,9 @@ const ClothState = (props) => {
       } else {
         priceObj.salePrice = sale.toFixed(2);
       }
+      if (withGST) {
+        priceObj.salePrice = (sale + gstAmount).toFixed(2);
+      }
 
       return priceObj;
     });
@@ -74,21 +77,15 @@ const ClothState = (props) => {
         calculate,
         result,
         withGST,
-        setWithGST: (val) => {
-          // GST can only be enabled if Admin is active
-          if (costPrice) {
-            setWithGST(val);
-          } else {
-            setWithGST(false);
-          }
-        },
+        setWithGST: (val) => setWithGST(val),
+
         costPrice,
-        setCostPrice: (val) => {
-          setCostPrice(val);
-          if (!val) {
-            setWithGST(false); // Disable GST if Admin is off
-          }
-        },
+        setCostPrice: (val) => setCostPrice(val),
+
+        // Add this if not present
+
+        salePrice,
+        setSalePrice: (val) => setSalePrice(val), // Add this too if needed
       }}
     >
       {props.children}

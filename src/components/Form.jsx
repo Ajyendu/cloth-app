@@ -198,7 +198,6 @@ const Form = () => {
                         onChange={() => {
                           const newValue = !costPrice;
                           setCostPrice(newValue);
-                          if (!newValue) setWithGST(false);
                         }}
                       />
                       <span className="slider">
@@ -219,35 +218,33 @@ const Form = () => {
                   </div>
 
                   {/* GST toggle */}
-                  {costPrice && (
-                    <div className="admin_button">
-                      <label className="switch">
-                        <input
-                          type="checkbox"
-                          disabled={!costPrice}
-                          checked={withGST}
-                          onChange={() => setWithGST((prev) => !prev)}
-                        />
-                        <span className="slider">
-                          <span className="title">GST</span>
-                          <span className="ball">
-                            <span className="icon">
-                              <img
-                                src={gstIcon}
-                                alt="GST"
-                                width={22}
-                                height={22}
-                                style={{
-                                  display: "block",
-                                  objectFit: "contain",
-                                }}
-                              />
-                            </span>
+
+                  <div className="admin_button">
+                    <label className="switch">
+                      <input
+                        type="checkbox"
+                        checked={withGST}
+                        onChange={() => setWithGST((prev) => !prev)}
+                      />
+                      <span className="slider">
+                        <span className="title">GST</span>
+                        <span className="ball">
+                          <span className="icon">
+                            <img
+                              src={gstIcon}
+                              alt="GST"
+                              width={22}
+                              height={22}
+                              style={{
+                                display: "block",
+                                objectFit: "contain",
+                              }}
+                            />
                           </span>
                         </span>
-                      </label>
-                    </div>
-                  )}
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
 
