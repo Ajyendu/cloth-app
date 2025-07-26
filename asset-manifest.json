@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cloth-app/static/css/main.cab8e05e.css",
-    "main.js": "/cloth-app/static/js/main.9d14b2d2.js",
+    "main.css": "/cloth-app/static/css/main.7c885bba.css",
+    "main.js": "/cloth-app/static/js/main.b89d0e39.js",
     "static/js/453.c96dc4ca.chunk.js": "/cloth-app/static/js/453.c96dc4ca.chunk.js",
     "static/media/gstIcon.png": "/cloth-app/static/media/gstIcon.061145030934e8be64a9.png",
     "static/media/coat.png": "/cloth-app/static/media/coat.e1d7d7010643a15c0aa1.png",
@@ -9,12 +9,12 @@
     "static/media/pant.png": "/cloth-app/static/media/pant.426b41b5202d0d0df2b3.png",
     "static/media/adminIcon.png": "/cloth-app/static/media/adminIcon.bea718433c0af7ad21f2.png",
     "index.html": "/cloth-app/index.html",
-    "main.cab8e05e.css.map": "/cloth-app/static/css/main.cab8e05e.css.map",
-    "main.9d14b2d2.js.map": "/cloth-app/static/js/main.9d14b2d2.js.map",
+    "main.7c885bba.css.map": "/cloth-app/static/css/main.7c885bba.css.map",
+    "main.b89d0e39.js.map": "/cloth-app/static/js/main.b89d0e39.js.map",
     "453.c96dc4ca.chunk.js.map": "/cloth-app/static/js/453.c96dc4ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cab8e05e.css",
-    "static/js/main.9d14b2d2.js"
+    "static/css/main.7c885bba.css",
+    "static/js/main.b89d0e39.js"
   ]
 }
