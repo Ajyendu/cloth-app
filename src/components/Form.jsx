@@ -25,26 +25,29 @@ const Form = () => {
     const summary = document.getElementById("summary-to-print");
     if (!summary) return;
 
-    const newWindow = window.open("", "_blank");
-    if (!newWindow) {
-      alert("Popup blocked. Please allow popups for this site.");
+    const printWindow = window.open("", "_blank");
+
+    if (!printWindow) {
+      alert("Popup blocked! Please allow popups for this site.");
       return;
     }
 
-    const printContent = `
+    printWindow.document.write(`
       <html>
         <head>
           <title>Print Summary</title>
           <meta charset="UTF-8" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
           <style>
             body {
+              margin: 0;
               padding: 30px;
               background-color: #f8f9fa;
               font-family: 'Segoe UI', Roboto, 'Noto Sans', 'Arial Unicode MS', sans-serif;
-              text-align: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
             }
             .print-card {
               background-color: #fff;
@@ -52,7 +55,6 @@ const Form = () => {
               box-shadow: 0 4px 12px rgba(0,0,0,0.1);
               padding: 24px;
               width: 90vw;
-              margin: auto;
             }
             table {
               margin-top: 16px;
@@ -69,43 +71,30 @@ const Form = () => {
               background-color: #f1f3f5;
               font-weight: 600;
             }
-            .print-btn {
-              margin-top: 20px;
-              padding: 10px 20px;
-              background-color: black;
-              color: white;
-              border: none;
-              border-radius: 8px;
-              font-size: 16px;
-              cursor: pointer;
-            }
             @media print {
-              .print-btn {
+              .no-print {
                 display: none !important;
               }
             }
           </style>
         </head>
         <body>
-          <div class="print-card">${summary.innerHTML}</div>
-          <button class="print-btn" onclick="window.print()">Print Again</button>
+          <div class="print-card">
+            ${summary.innerHTML}
+          </div>
+          <script>
+            window.onload = () => {
+              setTimeout(() => {
+                window.print();
+                window.onafterprint = () => window.close();
+              }, 500); // slight delay ensures fonts/icons load
+            };
+          </script>
         </body>
       </html>
-    `;
+    `);
 
-    newWindow.document.open();
-    newWindow.document.write(printContent);
-    newWindow.document.close();
-
-    // Automatically try to trigger print after DOM fully loads
-    newWindow.onload = () => {
-      try {
-        newWindow.focus(); // Required for Android sometimes
-        newWindow.print();
-      } catch (e) {
-        console.error("Auto-print failed:", e);
-      }
-    };
+    printWindow.document.close();
   };
 
   const handleChange = (e) => {
@@ -377,11 +366,8 @@ const Form = () => {
       )}
 
       {submitted && (
-        <div className="d-flex justify-content-center my-3">
-          <button
-            className="fancy-button no-print"
-            onClick={handlePrintSummary}
-          >
+        <div className="d-flex justify-content-center my-3 no-print">
+          <button className="fancy-button " onClick={handlePrintSummary}>
             <span className="button_top">Print</span>
           </button>
         </div>
