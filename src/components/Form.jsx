@@ -188,7 +188,7 @@ const Form = () => {
               </div>
 
               <div>
-                <div className="d-flex  ">
+                <div className="d-flex  gap-2">
                   {/* Admin toggle */}
                   <div className="admin_button">
                     <label className="switch">

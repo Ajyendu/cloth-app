@@ -351,7 +351,7 @@
   scroll-snap-type: x mandatory;
   justify-content: center;
   gap: 20px;
-  padding: 10px 0;
+
   max-width: 400px;
 
   scroll-padding: 10px;
@@ -679,7 +679,7 @@ body,
   }
 
   .switch input:checked + .slider {
-    background-color: #8a5cd4;
+    background-color: #3b75c1;
   }
 
   .switch input:focus + .slider {
@@ -864,7 +864,7 @@ body,
     scroll-snap-type: x mandatory;
     justify-content: center;
     gap: 20px;
-    padding: 10px 0;
+    padding: 16px 0;
     scroll-padding: 10px;
     -webkit-overflow-scrolling: touch;
   }
