@@ -112,7 +112,7 @@ const Form = () => {
     setTimeout(() => {
       printWindow.print();
       printWindow.close();
-    }, 100);
+    }, 500);
   };
 
   const handleChange = (e) => {
